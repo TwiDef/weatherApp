@@ -6,6 +6,13 @@ html {
 *::before,
 *::after {
     box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
 }
 
 a {
@@ -44,10 +51,15 @@ body {
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 50px;
     min-width: 320px;
     overflow-x: hidden;
     position: relative;
-    color: #fff;
+    color: #040404;
+    font-family: "Rubik", sans-serif;
 }
 
 .container {
