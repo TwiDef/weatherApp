@@ -1,6 +1,8 @@
 // http://api.weatherapi.com/v1/current.json?key=a0a2b5ac85604c67a5e102408230402&q=London
 // a0a2b5ac85604c67a5e102408230402'
 
+import conditions from "./conditions.js";
+console.log(conditions);
 
 const apiKey = 'a0a2b5ac85604c67a5e102408230402';
 
@@ -34,6 +36,7 @@ function showCard({ name, country, temp, condition }) {
     header.insertAdjacentHTML('afterend', html);
 }
 
+
 async function getWeather(city) {
     const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
     const response = await fetch(url);
@@ -54,12 +57,16 @@ form.addEventListener('submit', async(e) => {
         showError(data.error.message);
     } else {
         removeCard();
+        const info = conditions.find((obj) => obj.code === data.current.condition.code);
+
+        const condition = data.current.is_day ?
+            info.languages[23]['day_text'] : info.languages[23]['night_text'];
 
         const weatherData = {
             name: data.location.name,
             country: data.location.country,
             temp: data.current.temp_c,
-            condition: data.current.condition.text
+            condition: condition
         };
 
         showCard(weatherData);
