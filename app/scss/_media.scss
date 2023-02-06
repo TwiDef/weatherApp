@@ -1,0 +1,29 @@
+@media (max-width: 500px) {
+    body {
+        row-gap: 34px;
+    }
+    .header {
+        padding: 10px 0 70px;
+    }
+    .title {
+        font-size: 34px;
+    }
+    .form {
+        flex-direction: column;
+        width: 280px;
+    }
+    .card {
+        min-width: 290px;
+    }
+    .card__city {
+        font-size: 26px;
+        line-height: 24px;
+    }
+    .card__value {
+        font-size: 82px;
+    }
+    .card__img {
+        width: 80px;
+        height: 80px;
+    }
+}

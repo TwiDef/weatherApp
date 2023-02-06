@@ -21,13 +21,13 @@ function showError(errorMessage) {
     header.insertAdjacentHTML('afterend', html);
 }
 
-function showCard({ name, country, temp, condition }) {
+function showCard({ name, country, temp, condition, img }) {
     const html = `
             <div class="card">
                 <h2 class="card__city">${name} <span>${country}</span></h2>
                 <div class="card__items">
                     <div class="card__value">${temp}<span>&#176;</span></div>
-                    <img class="card__img" src="./images/clouds-and-sun.png" alt="weather">
+                    <img class="card__img" src="${img}" alt="weather">
                 </div>
                 <div class="card__description">${condition}</div>
             </div>
@@ -66,7 +66,8 @@ form.addEventListener('submit', async(e) => {
             name: data.location.name,
             country: data.location.country,
             temp: data.current.temp_c,
-            condition: condition
+            condition: condition,
+            img: data.current.condition.icon
         };
 
         showCard(weatherData);
